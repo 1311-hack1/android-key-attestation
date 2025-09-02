@@ -39,6 +39,10 @@ fun main() {
         }
         
         routing {
+            get("/health") {
+                call.respond(HttpStatusCode.OK, mapOf("status" to "healthy"))
+            }
+            
             post("/verify") {
                 try {
                     val body = call.receiveText()
